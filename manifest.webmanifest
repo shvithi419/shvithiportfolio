@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Study Room by Shvithi",
+  "short_name": "Study Room",
+  "description": "A personal study planner and focus timer.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf8f2",
+  "theme_color": "#182321",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

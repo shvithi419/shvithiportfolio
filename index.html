@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#182321">
+  <meta name="description" content="A simple planner for tasks and focused study sessions.">
+
+  <title>Study Room | Shvithi</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="app-header">
+    <a class="brand" href="../index.html">SS<span>.</span></a>
+    <div>
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h1>Study Room<span>.</span></h1>
+    </div>
+    <a class="back-link" href="../index.html">Portfolio ↗</a>
+  </header>
+
+  <main class="app-layout">
+    <section class="welcome-panel">
+      <div>
+        <p class="eyebrow">A LITTLE PROGRESS ADDS UP</p>
+        <h2>Make today<br>count.</h2>
+        <p>Plan your tasks. Focus on one thing. Take it step by step.</p>
+      </div>
+
+      <button id="installButton" class="secondary-button" hidden>
+        Install Study Room
+      </button>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <p>Total tasks</p>
+        <strong id="totalCount">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <p>Completed</p>
+        <strong id="completedCount">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <p>Remaining</p>
+        <strong id="remainingCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">01 / PLAN</p>
+      <h2>Add a study task</h2>
+
+      <form id="taskForm" class="task-form">
+        <label>
+          Task name
+          <input
+            id="taskTitle"
+            type="text"
+            placeholder="e.g. Revise data structures"
+            maxlength="120"
+            required
+          >
+        </label>
+
+        <div class="form-row">
+          <label>
+            Subject
+            <input
+              id="taskSubject"
+              type="text"
+              placeholder="e.g. Computer Science"
+              maxlength="60"
+            >
+          </label>
+
+          <label>
+            Due date
+            <input id="taskDate" type="date">
+          </label>
+        </div>
+
+        <label>
+          Priority
+          <select id="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+          </select>
+        </label>
+
+        <button class="primary-button" type="submit" id="submitTask">
+          Add task +
+        </button>
+
+        <button class="secondary-button" type="button" id="cancelEdit" hidden>
+          Cancel editing
+        </button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / YOUR LIST</p>
+          <h2>Study tasks</h2>
+        </div>
+      </div>
+
+      <label class="search-label">
+        Search tasks
+        <input id="searchInput" type="search" placeholder="Search by task or subject">
+      </label>
+
+      <div class="filter-row" aria-label="Filter tasks">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="active">Remaining</button>
+        <button class="filter-button" data-filter="completed">Completed</button>
+      </div>
+
+      <div id="taskList" class="task-list" aria-live="polite"></div>
+      <p id="emptyMessage" class="empty-message">Your study list is empty. Add a task to begin.</p>
+    </section>
+
+    <section class="panel focus-panel">
+      <p class="eyebrow">03 / FOCUS</p>
+      <h2>One thing at a time.</h2>
+      <p class="focus-description">
+        Try a 25-minute focus session, then take a short break.
+      </p>
+
+      <div class="timer-display" id="timerDisplay" role="timer">25:00</div>
+
+      <div class="timer-controls">
+        <button class="primary-button" id="startTimer">Start</button>
+        <button class="secondary-button" id="pauseTimer">Pause</button>
+        <button class="secondary-button" id="resetTimer">Reset</button>
+      </div>
+
+      <label class="duration-label">
+        Session length
+        <select id="durationSelect">
+          <option value="15">15 minutes</option>
+          <option value="25" selected>25 minutes</option>
+          <option value="45">45 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+      </label>
+
+      <p id="timerStatus" class="timer-status" aria-live="polite">
+        Ready when you are.
+      </p>
+    </section>
+
+    <section class="app-footer">
+      <p>Small steps. Consistent effort. Progress over perfection.</p>
+      <p class="small-note">
+        Tasks are stored in this browser on this device. They are not
+        automatically synced to other devices.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
